@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Safety Pro | Professional Food Handler Certification</title>
+    <style>
+        :root {
+            --primary: #09ACE9;
+            --secondary: #4BC4F4;
+            --accent: #A1E2FF;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --text: #333;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: white;
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            font-size: 2.5rem;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .logo-line-1, .logo-line-2, .logo-line-3 {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+        }
+
+        .logo-subtitle {
+            font-size: 0.9rem;
+            color: var(--dark);
+            margin-top: 2px;
+            font-weight: 500;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .cta-button {
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .cta-button:hover {
+            background: var(--secondary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        /* Course Modules Section */
+        .modules {
+            padding: 80px 0;
+            background: var(--light);
+        }
+
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .module-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--primary);
+            transition: transform 0.3s;
+        }
+
+        .module-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .module-card h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 80px 0;
+            background: white;
+            text-align: center;
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+
+        .price {
+            font-size: 2.5rem;
+            color: var(--primary);
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: var(--light);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #555;
+        }
+
+        .legal-links {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .legal-links a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .legal-links a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .footer-logo {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo-line {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent);
+            letter-spacing: 0.5px;
+        }
+
+        .footer-subtitle {
+            color: #ccc;
+            font-size: 0.8rem;
+            margin-top: 5px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .pricing-card.featured {
+                transform: none;
+            }
+            .logo-container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+            .logo-line-1, .logo-line-2, .logo-line-3 {
+                font-size: 1.4rem;
+            }
+            .legal-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo-container">
+                    <div class="logo-icon">
+                        <span style="color: var(--primary);">🛡</span>
+                    </div>
+                    <div class="logo-text">
+                        <div class="logo-line-1">Food</div>
+                        <div class="logo-line-2">Safety</div>
+                        <div class="logo-line-3">Pro</div>
+                        <div class="logo-subtitle">Professional Certification</div>
+                    </div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#modules">Curriculum</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <a href="#pricing" class="cta-button">Get Certified Today</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Advanced Food Safety & Quality Certification</h1>
+            <p>Transform your food safety practices from a requirement into a culture of excellence. Get your team certified with our comprehensive, practical training program.</p>
+            <a href="#pricing" class="cta-button">Start Your Training</a>
+        </div>
+    </section>
+
+    <section class="features" id="courses">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Food Safety Pro?</h2>
+                <p>Practical training that delivers real results for your business</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3>Comprehensive Curriculum</h3>
+                    <p>10 detailed modules covering everything from microbiology to HACCP systems and audit preparedness.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏆</div>
+                    <h3>Industry Recognized</h3>
+                    <p>Certificates recognized by health departments and aligned with FDA Food Code standards.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Flexible Learning</h3>
+                    <p>Online, in-person, or hybrid training options to fit your team's schedule and needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="modules" id="modules">
+        <div class="container">
+            <div class="section-title">
+                <h2>Comprehensive Course Curriculum</h2>
+                <p>10 modules designed to create food safety experts</p>
+            </div>
+            <div class="modules-grid">
+                <div class="module-card">
+                    <h4>Module 1: Food Safety Culture</h4>
+                    <p>Understanding the impact and building a proactive safety environment. Learn to create a culture where safety comes first.</p>
+                </div>
+                <div class="module-card">
+                    <h4>Module 2: Microbiology & Pathogens</h4>
+                    <p>Deep dive into microorganisms and control methods. Understand bacteria, viruses, and how to prevent their growth.</p>
+                </div>
+                <div class="module-card">
+                    <h4>Module 3: Allergen Management</h4>
+                    <p>Mastering the "Big 9" allergens and prevention strategies. Prevent cross-contact and protect sensitive customers.</p>
+                </div>
+                <div class="module-card">
+                    <h4>Module 4: Personal Hygiene</h4>
+                    <p>Implementing effective worker health protocols. Proper handwashing, uniform standards, and illness reporting.</p>
+                </div>
+                <div class="module-card">
+                    <h4>Module 5: Food Flow Management</h4>
+                    <p>Controls from purchasing through dispatch. Learn FIFO, proper storage, and receiving procedures.</p>
+                </div>
+                <div class="module-card">
+                    <h4>Module 6: Temperature Control</h4>
+                    <p>Mastering the danger zone and critical limits. Proper cooking, cooling, and holding temperatures.</p>
+                </div>
+                <div class="module-card">
+                    <h4>Module 7: Cleaning & Sanitizing</h4>
+                    <p>Effective sanitation programs and pest management. Learn the 6-step cleaning process and chemical safety.</p>
+                </div>
+                <div class="module-card">
+                    <h4>Module 8: Food Defense</h4>
+                    <p>Protecting against intentional adulteration. Learn the ALERT system and security measures.</p>
+                </div>
+                <div class="module-card">
+                    <h4>Module 9: HACCP Systems</h4>
+                    <p>Understanding and implementing preventive controls. Master the 7 principles of HACCP.</p>
+                </div>
+                <div class="module-card">
+                    <h4>Module 10: Audit Preparedness</h4>
+                    <p>Excelling in internal and external audits. Learn what inspectors look for and how to be always ready.</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="module-details.html" class="cta-button">View Detailed Curriculum</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get Your Team Certified</h2>
+                <p>Flexible pricing options for individuals and businesses</p>
+            </div>
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <h3>Individual Certification</h3>
+                    <div class="price">R550</div>
+                    <ul style="text-align: left; margin: 1rem 0;">
+                        <li>Full Course Access</li>
+                        <li>Digital Manual & Toolkit</li>
+                        <li>Final Certification Exam</li>
+                        <li>3-Year Certificate</li>
+                        <li>Email Support</li>
+                    </ul>
+                    <a href="#contact" class="cta-button">Enroll Now</a>
+                </div>
+                <div class="pricing-card featured">
+                    <h3>Team Training</h3>
+                    <div class="price">R450<span style="font-size: 1rem;">/person</span></div>
+                    <ul style="text-align: left; margin: 1rem 0;">
+                        <li>Everything in Individual</li>
+                        <li>Progress Dashboard</li>
+                        <li>Bulk Certificate Management</li>
+                        <li>Priority Support</li>
+                        <li>Dedicated Account Manager</li>
+                    </ul>
+                    <a href="#contact" class="cta-button">Get Team Quote</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Enterprise Solution</h3>
+                    <div class="price">Custom</div>
+                    <ul style="text-align: left; margin: 1rem 0;">
+                        <li>Unlimited Users</li>
+                        <li>White-label Options</li>
+                        <li>Custom Content</li>
+                        <li>API Integration</li>
+                        <li>24/7 Premium Support</li>
+                    </ul>
+                    <a href="#contact" class="cta-button">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>Ready to transform your food safety culture? Contact us today.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p><strong>Contact Person:</strong> Heidi Groenewald</p>
+                    <p><strong>Phone:</strong> 060 932 1120</p>
+                    <p><strong>Email:</strong> agradeglobalgroup@gmail.com</p>
+                    <p><strong>Hours:</strong> Mon-Fri 8AM-6PM SAST</p>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company</label>
+                            <input type="text" id="company" name="company">
+                        </div>
+                        <div class="form-group">
+                            <label for="interest">I'm interested in:</label>
+                            <select id="interest" name="interest">
+                                <option value="individual">Individual Certification</option>
+                                <option value="team">Team Training</option>
+                                <option value="enterprise">Enterprise Solution</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="cta-button">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="footer-logo-line">Food</div>
+                        <div class="footer-logo-line">Safety</div>
+                        <div class="footer-logo-line">Pro</div>
+                        <div class="footer-subtitle">Professional Certification</div>
+                    </div>
+                    <p style="color: #ccc;">Transforming food safety from a requirement into a culture of excellence through practical, comprehensive training.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul style="list-style: none;">
+                        <li><a href="#home" style="color: #ccc;">Home</a></li>
+                        <li><a href="#courses" style="color: #ccc;">Courses</a></li>
+                        <li><a href="#pricing" style="color: #ccc;">Pricing</a></li>
+                        <li><a href="#contact" style="color: #ccc;">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul style="list-style: none;">
+                        <li style="color: #ccc;">Heidi Groenewald</li>
+                        <li style="color: #ccc;">060 932 1120</li>
+                        <li style="color: #ccc;">agradeglobalgroup@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Food Safety Pro. All rights reserved. | Professional Food Handler Certification</p>
+                <div class="legal-links">
+                    <a href="terms.html">
